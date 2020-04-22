@@ -1,0 +1,27 @@
+---
+- hosts: masters
+  tasks:
+  - name: Create kube-vip config directory
+    file:
+      path: /etc/kube-vip
+      state: directory
+      mode: 0755
+
+  - name: Write kube-vip config file"
+    template:
+      src: ../templates/config.yaml.j2
+      dest: /etc/kube-vip/config.yaml
+
+  - name: Create kubelet static pod manifest directory
+    file:
+      path: /etc/origin/node/pods
+      state: directory
+      mode: 0700
+
+  - name: Write static pod manifest
+    template:
+      src: ../templates/kube-vip.yaml.js
+      dest: /etc/origin/node/pods/kube-vip.yaml
+      mode: 0600
+ 
+
