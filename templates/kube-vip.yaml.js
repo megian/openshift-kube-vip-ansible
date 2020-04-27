@@ -21,7 +21,6 @@ spec:
       name: config
   hostNetwork: true
   priorityClassName: system-node-critical
-  restartPolicy: Always
   volumes:
   - hostPath:
       path: /etc/kube-vip/
