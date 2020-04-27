@@ -1,16 +1,23 @@
 ---
 - hosts: masters
   tasks:
-  - name: Create kube-vip config directory
-    file:
-      path: /etc/kube-vip
-      state: directory
-      mode: 0755
+  - name: Initalize config variables
+    set_fact:
+      kube_vip_config_mode: "{{ kube_vip_config_mode | default('file') }}"
+      kube_vip_port: "{{ kube_vip_port | default(10000) }}"
 
-  - name: Write kube-vip config file"
-    template:
-      src: ../templates/config.yaml.j2
-      dest: /etc/kube-vip/config.yaml
+  - when: kube_vip_config_mode == "file"
+    block:
+    - name: Create kube-vip config directory
+      file:
+        path: /etc/kube-vip
+        state: directory
+        mode: 0755
+
+    - name: Write kube-vip config file
+      template:
+        src: ../templates/config.yaml.j2
+        dest: /etc/kube-vip/config.yaml
 
   - name: Create kubelet static pod manifest directory
     file:
