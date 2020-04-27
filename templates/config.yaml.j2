@@ -20,7 +20,7 @@ loadBalancers:
   port: 8443
   bindToVip: true
   backends:
-{% for name in groups.masters %}
+{% for name in [inventory_hostname] + (groups.masters | difference(inventory_hostname)) %}
   - port: 8443
     address: {{ hostvars[name].ansible_default_ipv4.address }}
 {% endfor %}
