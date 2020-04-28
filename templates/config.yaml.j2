@@ -9,7 +9,7 @@ remotePeers:
   port: {{ kube_vip_port | default(10000) }}
 {% endfor %}
 addPeersAsBackends: false
-vip: {{ kube_vip_vip | default('') }}
+vip: {{ kube_vip_vip_address_ipv4 | default('') }}
 gratuitousARP: {{ kube_vip_gratuitous_arp | default('false') }}
 singleNode: false
 startAsLeader: {{ inventory_hostname == groups.masters.0 | ternary('true', 'false') }}

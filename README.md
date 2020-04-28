@@ -15,7 +15,7 @@ Requirements:
 
 ## Variables
 
-* `kube_vip_vip`: Virtual IPv4 address for the control plane (required)
+* `kube_vip_vip_address_ipv4`: Virtual IPv4 address for the control plane (required)
 
 * `kube_vip_port`: Port for the kube-vip cluster communication.
   Default: 10000
