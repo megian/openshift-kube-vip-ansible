@@ -4,7 +4,7 @@ This Ansible playbook provides an bootstrap mechanismus for [https://kube-vip.io
 
 ## Overview
 
-Kube-vip provides an easy to manage VIP/LoadBalancer for the control plane based on the [Raft consensus algorithm](https://en.wikipedia.org/wiki/Raft_(computer_science). It is configured as Kubernetes static pod, so there is no recursive dependency to the control plane needs to be up.
+Kube-vip provides an easy to manage VIP/LoadBalancer for the control plane based on the [Raft](https://en.wikipedia.org/wiki/Raft_(computer_science) consensus algorithm. It is configured as Kubernetes static pod, so there is no recursive dependency to the control plane needs to be up.
 
 Because kube-vip is running on the control plane/master nodes, there are no additional load balancer hosts required.
 
