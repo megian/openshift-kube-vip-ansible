@@ -6,9 +6,14 @@ This Ansible playbook provides an bootstrap mechanismus for [https://kube-vip.io
 
 Kube-vip provides an easy to manage VIP/LoadBalancer for the control plane based on the [Raft consensus algorithm](https://en.wikipedia.org/wiki/Raft_%28computer_science%29). It is configured as Kubernetes static pod, so there is no recursive dependency to the control plane needs to be up.
 
-Because kube-vip is running on the control plane/master nodes, there are no additional load balancer hosts required.
+Because kube-vip is running on the control plane/master nodes, there are no additional load balancer hosts required. The setup works in layer 2 networks.
+
+![Overview](overview.png "Overview")
+
+If an change is detected, the VIP is transfered from one master to an other, by sending out a gratuitous arp to update the MAC address in all communicating peers. 
 
 Requirements:
+* Layer 2 network
 * OpenShift 3.11
 * Anible (Tested on version 2.8.5)
 * kube-vip >= 0.1.5

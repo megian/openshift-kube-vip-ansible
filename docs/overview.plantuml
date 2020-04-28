@@ -1,0 +1,31 @@
+@startuml
+node "Admin" as client
+
+node "Master 1" as master1 {
+  component "kube-vip" as master1_kube_vip
+  component "kube-apiserver (192.168.1.11:8443)" as master1_kube_apiserver
+}
+node "Master 2" as master2 {
+  component "kube-vip (192.168.1.1:8443)" as master2_kube_vip
+  component "kube-apiserver (192.168.1.12:8443)" as master2_kube_apiserver
+}
+node "Master 3" as master3 {
+  component "kube-vip" as master3_kube_vip
+  component "kube-apiserver (192.168.1.13:8443)" as master3_kube_apiserver
+}
+
+client ..> master1_kube_vip
+client --> master2_kube_vip
+client ..> master3_kube_vip
+
+master1_kube_vip --> master1_kube_apiserver
+master1_kube_vip --> master2_kube_apiserver
+master1_kube_vip --> master3_kube_apiserver
+master2_kube_vip --> master1_kube_apiserver
+master2_kube_vip --> master2_kube_apiserver
+master2_kube_vip --> master3_kube_apiserver
+master3_kube_vip --> master1_kube_apiserver
+master3_kube_vip --> master2_kube_apiserver
+master3_kube_vip --> master3_kube_apiserver
+@enduml
+
