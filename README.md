@@ -16,7 +16,7 @@ Requirements:
 * Layer 2 network
 * OpenShift 3.11
 * Anible (Tested on version 2.8.5)
-* kube-vip >= 0.1.5
+* kube-vip >= 0.3.5
 
 ## Variables
 
