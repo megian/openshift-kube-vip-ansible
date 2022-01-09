@@ -15,7 +15,7 @@ If an change is detected, the VIP is transfered from one master to an other, by 
 Requirements:
 * Layer 2 network
 * OpenShift 3.11
-* Anible (Tested on version 2.8.5)
+* Anible (Tested on version 2.9)
 * kube-vip >= 0.3.5
 
 ## Variables
