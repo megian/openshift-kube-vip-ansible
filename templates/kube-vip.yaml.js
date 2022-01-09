@@ -9,7 +9,7 @@ spec:
     - start
     - -c
     - /etc/kube-vip/config.yaml
-    image: docker.io/plndr/kube-vip:0.3.5
+    image: docker.io/plndr/kube-vip:v0.3.5
     name: kube-vip
     securityContext:
       capabilities:
