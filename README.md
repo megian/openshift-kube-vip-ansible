@@ -18,6 +18,8 @@ Requirements:
 * Anible (Tested on version 2.9)
 * kube-vip = 0.3.9
 
+In kube-vip version >=0.4.0 the [Raft](https://github.com/kube-vip/kube-vip/issues/107) [code](https://github.com/kube-vip/kube-vip/pull/296) has been removed. [LeaderElection](https://pkg.go.dev/k8s.io/client-go/tools/leaderelection) is now used.
+
 ## Variables
 
 * `kube_vip_vip_address_ipv4`: Virtual IPv4 address for the control plane (required)
@@ -58,5 +60,5 @@ The Ansible hosts group masters is used, usually defined for openshift-ansible a
 
 ## Remarks
 
-* IPv6: kube-vip does currently not support IPv6, so currently no
+* IPv6: kube-vip does support IPv6, but this playbook hasn't been tested against
 * OpenShift 4/Kubernetes: Not prepared, as the static pod path have been changed from `/etc/origin/node/pods` to the Kubernetes default of `/etc/kubernetes/manifests` and the API port has changed from 8443 to 6443. I'm not sure, if Ansible is the right way to configure anyway.
